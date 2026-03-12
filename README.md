@@ -4,16 +4,13 @@ This repository implements a **portfolio optimization analysis using real market
 
 The project demonstrates how quantitative models can support **optimal asset allocation under risk–return trade-offs**, combining data retrieval, portfolio optimization, and interactive visualization.
 
-Full project report available in my portfolio:
-[https://www.notion.so/Santino-Adduca-30b43fe0ba2e80b080cde1f85fb399dd?pvs=21](https://www.notion.so/Santino-Adduca-30b43fe0ba2e80b080cde1f85fb399dd?pvs=21)
+Full project report available in my portfolio: **[View Report](https://www.notion.so/Data-Driven-Portfolio-Optimization-32143fe0ba2e80ce8106d4fa676ad3f2)**
 
 ---
 
 # Interactive Dashboard
 
-Interactive visualization available here:
-
-**[https://sadduca.github.io/portfolio-markowitz-optimization/](https://sadduca.github.io/portfolio-markowitz-optimization/)**
+Interactive visualization available here: **[View Dashboard](https://sadduca.github.io/portfolio-markowitz-optimization/)**
 
 The dashboard allows exploration of:
 
