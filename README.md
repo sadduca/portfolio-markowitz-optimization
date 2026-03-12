@@ -1,4 +1,4 @@
-# Portfolio Optimization with Market Data
+# 📊 Portfolio Optimization with Market Data
 
 This repository implements a **portfolio optimization analysis using real market data**, based on the **Mean–Variance framework introduced by Harry Markowitz**.
 
@@ -8,7 +8,7 @@ Full project report available in my portfolio: **[View Report](https://www.notio
 
 ---
 
-# Interactive Dashboard
+# 🚀 Interactive Dashboard
 
 Interactive visualization available here: **[View Dashboard](https://sadduca.github.io/portfolio-markowitz-optimization/)**
 
@@ -27,7 +27,7 @@ Benchmarks include:
 
 ---
 
-# Project Overview
+# 📌 Project Overview
 
 Organizations frequently need to allocate resources across competing opportunities while balancing **expected return and risk**.
 
@@ -43,7 +43,7 @@ The results are presented in an **interactive dashboard for exploratory analysis
 
 ---
 
-# Key Features
+# ⭐ Key Features
 
 * End-to-end quantitative workflow
 * Real market data retrieved via API
@@ -54,7 +54,7 @@ The results are presented in an **interactive dashboard for exploratory analysis
 
 ---
 
-# Methodology
+# ⚙️ Methodology
 
 Historical asset prices are retrieved programmatically from **Yahoo Finance** using the **tidyquant** package in R.
 
@@ -72,27 +72,18 @@ The analytical workflow consists of:
 
 ---
 
-# Repository Structure
+# 🔁 Reproducibility
 
-```
-portfolio-markowitz-optimization
-│
-├── index.html
-├── efficient_frontier_plot.html
-│
-├── R
-│   └── portfolio_optimization.R
-│
-└── README.md
-```
+To reproduce the analysis:
 
-* **R script**: performs the portfolio optimization analysis.
-* **HTML files**: contain the interactive dashboard and visualizations.
-* **GitHub Pages** hosts the dashboard.
+1. Clone the repository.
+2. Install required R packages.
+3. Run the main R script.
+4. The script will retrieve market data via API and regenerate the dashboard.
 
 ---
 
-# Requirements
+# 📦 Requirements
 
 R packages used in the project include:
 
@@ -120,18 +111,27 @@ library(htmltools)       # Assemble the HTML dashboard
 
 ---
 
-# Reproducibility
+# 📂 Repository Structure
 
-To reproduce the analysis:
+```
+portfolio-markowitz-optimization
+│
+├── index.html
+├── efficient_frontier_plot.html
+│
+├── R
+│   └── portfolio_optimization.R
+│
+└── README.md
+```
 
-1. Clone the repository.
-2. Install required R packages.
-3. Run the main R script.
-4. The script will retrieve market data via API and regenerate the dashboard.
+* **R script**: performs the portfolio optimization analysis.
+* **HTML files**: contain the interactive dashboard and visualizations.
+* **GitHub Pages** hosts the dashboard.
 
 ---
 
-# Author
+# 👤 Author
 
 **Santino Adduca**
 
