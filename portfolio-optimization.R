@@ -100,6 +100,12 @@ returns <- returns[, colSums(is.na(returns)) == 0]
 cat("\n📊 Assets in final analysis:", ncol(returns), "\n")
 print(colnames(returns))
 
+# NOTE: We use arithmetic (simple) returns, which means:
+# 1. The compounding effect (interest on interest) is NOT considered
+# 2. Total return over multiple periods is not the product of individual returns
+# 3. This is a common simplification in portfolio finance
+# 4. For longer periods, logarithmic returns would be more accurate
+
 # -----------------------------------------------------------------------------
 # 4. COMPUTE MONTHLY RETURNS FOR BENCHMARKS AND ANNUALIZE
 # -----------------------------------------------------------------------------
@@ -141,7 +147,7 @@ cat("   NASDAQ   : Return:", percent(nasdaq_return, accuracy = 0.1),
 # -----------------------------------------------------------------------------
 defaultSpec <- portfolioSpec()
 setSolver(defaultSpec) <- "solveRquadprog"          # quadratic programming
-setNFrontierPoints(defaultSpec) <- 100              # number of points on frontier
+setNFrontierPoints(defaultSpec) <- 2000              # number of points on frontier
 
 # -----------------------------------------------------------------------------
 # 6. COMPUTE THE EFFICIENT FRONTIER
@@ -215,8 +221,20 @@ print(head(assets_df, 10) %>%
 # -----------------------------------------------------------------------------
 # 12. SPLIT THE FRONTIER INTO TWO SEGMENTS FOR VISUALIZATION
 # -----------------------------------------------------------------------------
-inefficient_df <- frontier_df[1:min_var_idx, ]
+# Find the asset with the lowest return
+min_return_asset <- assets_df[which.min(assets_df$return), ]
+
+# Find the frontier point closest to the lowest-return asset
+# This will be the starting point of the inefficient frontier
+distances <- sqrt((frontier_df$risk_annual - min_return_asset$risk)^2 + 
+                    (frontier_df$return_annual - min_return_asset$return)^2)
+inefficient_start_idx <- which.min(distances)
+
+# - Inefficient: from the lowest-return asset to minimum variance portfolio
+# - Efficient: from minimum variance to maximum return portfolio
+inefficient_df <- frontier_df[inefficient_start_idx:min_var_idx, ]
 efficient_df   <- frontier_df[min_var_idx:max_return_idx, ]
+
 
 # -----------------------------------------------------------------------------
 # 13. CREATE INTERACTIVE PLOT WITH PLOTLY
@@ -344,6 +362,7 @@ layout(
   margin = list(b = 100, l = 80, r = 40, t = 60)
 )
 
+print(p)
 
 # -----------------------------------------------------------------------------
 # 14. CONSOLE SUMMARY OF KEY PORTFOLIOS
